@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 
 namespace Lab9
 {
-    public class ConcreteDecoratorB : Decorator
+    public class DailySpecialsDecorator : MenuDecorator
     {
-        public ConcreteDecoratorB(IComponent component) : base(component) { }
+        private string _special;
 
-        public override string Operation()
+        public DailySpecialsDecorator(IMenu menu, string special) : base(menu)
         {
-            return $"ConcreteDecoratorB({base.Operation()})";
+            _special = special;
+        }
+
+        public override void Display()
+        {
+            base.Display();
+            Console.WriteLine("\nОсоблива пропозиція дня:");
+            Console.WriteLine(_special);
         }
     }
 }

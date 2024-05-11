@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Lab9
 {
-    public abstract class Decorator : IComponent
+    public abstract class MenuDecorator : IMenu
     {
-        protected IComponent _component;
+        protected IMenu _menu;
 
-        public Decorator(IComponent component)
+        public MenuDecorator(IMenu menu)
         {
-            _component = component;
+            _menu = menu;
         }
 
-        public virtual string Operation()
+        public virtual void Display()
         {
-            return _component.Operation();
+            _menu.Display();
         }
     }
 }

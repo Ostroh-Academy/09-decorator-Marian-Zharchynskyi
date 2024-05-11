@@ -6,13 +6,28 @@ using System.Threading.Tasks;
 
 namespace Lab9
 {
-    public class ConcreteDecoratorA : Decorator
+    public class SeasonalMenuDecorator : MenuDecorator
     {
-        public ConcreteDecoratorA(IComponent component) : base(component) { }
+        private List<string> _seasonalItems;
 
-        public override string Operation()
+        public SeasonalMenuDecorator(IMenu menu) : base(menu)
         {
-            return $"ConcreteDecoratorA({base.Operation()})";
+            _seasonalItems = new List<string>();
+        }
+
+        public void AddSeasonalItem(string item)
+        {
+            _seasonalItems.Add(item);
+        }
+
+        public override void Display()
+        {
+            base.Display();
+            Console.WriteLine("\nСезонні пропозиції:");
+            foreach (var item in _seasonalItems)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 
